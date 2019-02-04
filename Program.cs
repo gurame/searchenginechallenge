@@ -23,14 +23,14 @@ namespace SearchEngine
                 Console.Write($"{item.Input} : ");
                 foreach (var engine in item.Engines)
                 {
-                    Console.Write($"{engine.Engine}: {engine.Result} ");
+                    Console.Write($"{engine.Engine}: {engine.GetResult()} ");
                 }
                 Console.Write(System.Environment.NewLine);
             }
             Console.WriteLine($"##############################");
             foreach (var item in result.Engines)
             {
-                Console.Write($"{item.Engine} winner: {item.WinnerInput} ");
+                Console.Write($"{item.Engine} winner: {item.GetWinnerInput()} ");
                 Console.Write(System.Environment.NewLine);
             }
             Console.WriteLine($"##############################");

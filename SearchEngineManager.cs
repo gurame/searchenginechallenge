@@ -11,7 +11,7 @@ namespace SearchEngine
 {
     public class SearchEngineManager
     {
-        private List<ISearchEngineService> GetSearchEngines()
+        private List<ISearchEngineService> GetSearchEngineServices()
         {
             List<ISearchEngineService> searchEngineList = new List<ISearchEngineService>();
 
@@ -61,7 +61,7 @@ namespace SearchEngine
 
             var inputList = this.GetInputListToSearch(input);
 
-            var searchEngines = this.GetSearchEngines();
+            var searchEngines = this.GetSearchEngineServices();
 
             //input stats
             foreach (var inputItem in inputList)

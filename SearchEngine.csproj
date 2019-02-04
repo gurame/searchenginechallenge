@@ -50,10 +50,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEngineManager.cs" />
-    <Compile Include="Services\BaseSearchEngine.cs" />
-    <Compile Include="Services\BingSearchEngine.cs" />
-    <Compile Include="Services\GoogleSearchEngine.cs" />
-    <Compile Include="Services\Interfaces\ISearchEngine.cs" />
+    <Compile Include="Services\BaseSearchEngineService.cs" />
+    <Compile Include="Services\BingSearchEngineService.cs" />
+    <Compile Include="Services\GoogleSearchEngineService.cs" />
+    <Compile Include="Services\Interfaces\ISearchEngineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

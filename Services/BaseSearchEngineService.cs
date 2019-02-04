@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SearchEngine.Services
 {
-    public abstract class BaseSearchEngine
+    public abstract class BaseSearchEngineService
     {
         public void AddInputWinner(string input, long total)
         {
@@ -35,9 +35,17 @@ namespace SearchEngine.Services
         {
             using (var httpClient = new HttpClient())
             {
+                httpClient.Timeout = TimeSpan.FromSeconds(5);
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
-                var response = httpClient.SendAsync(request).GetAwaiter().GetResult();
-                return response;
+                try
+                {
+                    var response = httpClient.SendAsync(request).GetAwaiter().GetResult();
+                    return response;
+                }
+                catch (Exception)
+                {
+                    return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+                }
             }
         }
     }

@@ -34,6 +34,14 @@ namespace SearchEngine.Models
         }
 
         public string TotalWinner { get; set; }
+
+        public string GetTotalWinner()
+        {
+            if (string.IsNullOrEmpty(TotalWinner))
+                return "Not available";
+
+            return TotalWinner;
+        }
     }
 
     public class SearchEngineInputItemResult
@@ -62,7 +70,8 @@ namespace SearchEngine.Models
 
         public void AddResult(long result)
         {
-            this.TotalResult += result;
+            if(result != -1)
+               this.TotalResult += result;
         }
     }
 
@@ -70,6 +79,14 @@ namespace SearchEngine.Models
     {
         public string Engine { get; set; }
         public long Result { get; set; }
+
+        public string GetResult()
+        {
+            if (this.Result == -1)
+                return "Not available";
+
+            return Result.ToString();
+        }
     }
 
     public class SearchEngineEngineItemResult
@@ -77,5 +94,13 @@ namespace SearchEngine.Models
         public string Engine { get; set; }
         public string WinnerInput { get; set; }
         public long WinnerResult { get; set; }
+
+        public string GetWinnerInput()
+        {
+            if (string.IsNullOrEmpty(WinnerInput))
+                return "Not available";
+
+            return WinnerInput;
+        }
     }
 }
